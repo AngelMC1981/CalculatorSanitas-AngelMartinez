@@ -29,7 +29,7 @@ parámetro de entrada String form-data  :
 
 Para mayor facilidad en pruebas en la raíz del proyecto se encuentra un fichero Postman "calc.postman_collection.json" para importar y realizar las invocaciones deseadas una vez levantado el Rest
 
-Adicionalmente para probar gráficamente el ApiRest pueden utilizar la siguiente sentencia para abrir un HTML calculadora que he desarrollado y lo tengo en mi repositorio gitHub desplegado y lee en Rest en http://localhost:8084/calc
+Adicionalmente para probar de manera visual el ApiRest, utilizar la siguiente sentencia para abrir un HTML calc que he desarrollado y lo tengo en mi repositorio gitHub desplegado que consume el Rest en http://localhost:8084/calc
 En Windows: Inicio/Ejecutar:
 
 	chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security "https://angelmc1981.github.io/calculator/"

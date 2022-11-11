@@ -1,40 +1,49 @@
 package com.operation.calculator.controller;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.UnsupportedEncodingException;
 
 import org.junit.Test;
-import org.springframework.http.ResponseEntity;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.operation.calculator.services.OperationsCalculatorService;
 
 
-
+@RunWith(SpringRunner.class)
+@WebMvcTest(CalcRestControllerTest.class)
 public class CalcRestControllerTest {
 
-
+	
+	@MockBean
+	@Qualifier("operationsCalculatorService")
+	OperationsCalculatorService operationsCalculatorService;
+	
+	@Autowired
+	private MockMvc mvc;
+	
 	@Test
-	public void test() {
-		List<String> RequestOperacionList = new ArrayList<String>();
-		
-		RequestOperacionList.add("100-2*3-(4+2)/5");
-		RequestOperacionList.add("4+7/5");
-		RequestOperacionList.add("1-50*3/2");
-		RequestOperacionList.add("10.5*2+1");
-		
-		CalcRestController calc;
-		ResponseEntity<String> valor = null;
-		for (int i=0;i<RequestOperacionList.size();i++) 
-		{
-			calc = new CalcRestController();
-	      		      
-			valor = calc.getCalc(RequestOperacionList.get(i));
-			
-			System.out.println("Operación: "+RequestOperacionList.get(i));
-			System.out.println("Resultado: "+valor.getBody()+"\n");	      		
-		}
-			
-		assertEquals(valor.getStatusCode().name(),"OK");
+	public void ControllerGetCalcTest() throws UnsupportedEncodingException, Exception {
+		boolean flag = false;
+		when(operationsCalculatorService.allOperations( Mockito.any())).thenReturn("10");
+		String response = mvc.perform(post("/calc").param("RequestOperacion", "2+2*4")
+				.contentType(MediaType.MULTIPART_FORM_DATA))
+		.andDo(print()).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+
+		flag = Double.parseDouble(response)>0?true:false;	
+		assertTrue(flag);
 	}
 
 }

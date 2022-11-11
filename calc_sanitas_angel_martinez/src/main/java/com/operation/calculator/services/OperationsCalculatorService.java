@@ -1,9 +1,11 @@
 package com.operation.calculator.services;
 
+import java.math.BigDecimal;
+
 public interface OperationsCalculatorService {
 	
 	String allOperations(String equation);
-	String sum(String[] sumList);
-	String sub(String[] subList);
+	String sum(BigDecimal oper1, BigDecimal oper2);
+	String sub(BigDecimal oper1, BigDecimal oper2);
 	
 }

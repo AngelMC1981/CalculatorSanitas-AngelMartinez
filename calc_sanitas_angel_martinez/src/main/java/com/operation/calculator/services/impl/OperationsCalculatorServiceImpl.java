@@ -1,5 +1,7 @@
 package com.operation.calculator.services.impl;
 
+import java.math.BigDecimal;
+
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
@@ -33,15 +35,15 @@ public class OperationsCalculatorServiceImpl implements OperationsCalculatorServ
 	}
 
 	@Override
-	public String sum(String[] sumList) {
-		// TODO Auto-generated method stub
-		return null;
+	public String sum(BigDecimal oper1, BigDecimal oper2) {	
+		BigDecimal response = oper1.add(oper2);
+		return (response.toString());
 	}
 
 	@Override
-	public String sub(String[] subList) {
-		// TODO Auto-generated method stub
-		return null;
+	public String sub(BigDecimal oper1, BigDecimal oper2) {
+		BigDecimal response = oper1.subtract(oper2);
+		return (response.toString());
 	}
 
 }

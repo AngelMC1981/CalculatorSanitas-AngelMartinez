@@ -35,6 +35,7 @@ En Windows: Inicio/Ejecutar:
 
 	chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security "https://angelmc1981.github.io/calculator/"
 
+El único requisito de momento del html es lanzarse como se indica y que esté levantado el Rest en el puerto 8084
 
 
 ** Por otro lado Si se utilizan otro software que no sea postman para la invocación estos son los datos a configurar:

@@ -1,7 +1,7 @@
 # CalculatorSanitas-AngelMartinez
 
 Proyecto Maven-springBoot para compilar en war
-Java 1.
+Java 1.8
 
 Ejecutar en la clase com.operation.calculator.CalcApplication  con: Run "Spring Boot App" o "Java Application" 
 el servicio se levatará en el puerto 8084

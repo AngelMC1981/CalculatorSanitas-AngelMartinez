@@ -11,9 +11,12 @@ port: 8084
 Rest: calc
 
 Invocación a: http://localhost:8084/calc
-parámetro de entrada String form-data  :  
+parámetro de entrada String form-data  : 
+
+
 	Key: RequestOperacion
 	Value: <<String con la operación a realizar>>
+
 
 Para mayor facilidad en pruebas en la raíz del proyecto se encuentra un fichero Postman "calc.postman_collection.json" para importar y realizar las invocaciones deseadas una vez levantado el Rest
 
@@ -25,16 +28,20 @@ En Windows: Inicio/Ejecutar:
 
 
 ** Por otro lado Si se utilizan otro software que no sea postman para la invocación estos son los datos a configurar:
- 
-POST http://localhost:8084/calc
-Request Headers
-	User-Agent: PostmanRuntime/7.29.0
-	Accept: */*
-	Cache-Control: no-cache
-	Host: localhost:8084
-	Accept-Encoding: gzip, deflate, br
-	Connection: keep-alive
-	Content-Type: multipart/form-data
-	Content-Length: ##
-Request Body
-	RequestOperacion: "2*7+100/2"
+
+	POST http://localhost:8084/calc
+	Request Headers
+		User-Agent: PostmanRuntime/7.29.0
+		Accept: */*
+		Cache-Control: no-cache
+		Host: localhost:8084
+		Accept-Encoding: gzip, deflate, br
+		Connection: keep-alive
+		Content-Type: multipart/form-data
+		Content-Length: ##
+	Request Body
+		RequestOperacion: "2*7+100/2"
+
+
+
+

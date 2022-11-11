@@ -3,6 +3,15 @@
 Proyecto Maven-springBoot para compilar en war
 Java 1.8
 
+Estructura:
+
+	com.operation.calculator		(contiene el SpringBootApplication)
+	com.operation.calculator.controller	(contendrá los controladores)
+	com.operation.calculator.dto		(dtos o clases que referencien estructuras request/response)
+	com.operation.calculator.services	(servicio(s) a implementar)
+	com.operation.calculator.services.impl	(implementación de servicios)
+
+
 Ejecutar en la clase com.operation.calculator.CalcApplication  con: Run "Spring Boot App" o "Java Application" 
 el servicio se levatará en el puerto 8084
 

@@ -1,6 +1,7 @@
 package com.operation.calculator.dto;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 public class CalcResponseDto implements Serializable {
  
@@ -8,13 +9,13 @@ public class CalcResponseDto implements Serializable {
  
     public String operacion;
  
-    public String resultado;
+    public BigDecimal resultado;
  
     public CalcResponseDto() {
         super();
     }
      
-    public CalcResponseDto(String operacion, String resultado) {
+    public CalcResponseDto(String operacion, BigDecimal resultado) {
         super();
         this.operacion = operacion;
         this.resultado = resultado;
@@ -28,11 +29,11 @@ public class CalcResponseDto implements Serializable {
         this.operacion = operacion;
     }
  
-    public String getResultado() {
+    public BigDecimal getResultado() {
         return resultado;
     }
  
-    public void setResultado(String resultado) {
+    public void setResultado(BigDecimal resultado) {
         this.resultado = resultado;
     }
  

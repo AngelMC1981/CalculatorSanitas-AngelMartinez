@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,10 +36,10 @@ public class CalcRestControllerTest {
 	private MockMvc mvc;
 	
 	@Test
-	public void ControllerGetCalcTest() throws UnsupportedEncodingException, Exception {
+	public void controllerGetCalcTest() throws UnsupportedEncodingException, Exception {
 		boolean flag = false;
-		when(operationsCalculatorService.allOperations( Mockito.any())).thenReturn("10");
-		String response = mvc.perform(post("/calc").param("RequestOperacion", "2+2*4")
+		when(operationsCalculatorService.allOperations( Mockito.any())).thenReturn(new BigDecimal(10));
+		String response = mvc.perform(post("/calc").param("RequestOperacion", "2+2")
 				.contentType(MediaType.MULTIPART_FORM_DATA))
 		.andDo(print()).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
 
